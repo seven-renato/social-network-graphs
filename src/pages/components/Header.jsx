@@ -23,18 +23,18 @@ const Header = () => {
             }
         })
     };
+
+    const [logoutUserInformation, setLogoutUserInformation] = useState(false)
+    const handleLogoutUserInformation = () => {
+        setLogoutUserInformation(true)
+    }
     return (
-        <div className='flex bg-blue-500 text-white px-4 py-2 lg:px-8 lg:py-4'>
-                <div className='flex gap-10 w-3/4'>
+        <div className='flex bg-beeyellow h-20 text-white px-4 '>
+                <div className='flex gap-10 w-2/3'>
                     <div className="flex flex-col justify-center items-center text-4xl ">
                         <Link to={`/home`}>
-                            <img className="w-10 h-10" src="https://i0.wp.com/multarte.com.br/wp-content/uploads/2020/07/twitter_logo_whiteonimage.png?resize=400%2C400&ssl=1" alt="" />
+                            <img className="mt-2 w-20 h-20" src="../../../public/logo.png" alt="" />
                         </Link>
-                    </div>
-                    <div className="flex flex-col justify-center items-center text-4xl ">
-                        <a href="/home">
-                            {user.username}
-                        </a>
                     </div>
                     <div className="flex flex-col justify-center items-center text-4xl">
                         <Link to={`/social-network`}>
@@ -42,24 +42,38 @@ const Header = () => {
                         </Link>
                     </div>
                 </div>
-                <div className='w-1/4'>
-                    <Search className="mb-1" placeholder="search for a user" enterButton="Search" size="large" onSearch={onSearch}/>
-                    {!searched ? (<span></span>) : (
-                    <>
-                        <div className="flex flex-col justify-center items-center mt-1">
-                            {foundUsers.map((item, index) => (
-                                <div className="mb-2" key={index}>
-                                    <a href={`/perfil/${item}`} key={index}>
-                                        {item}
-                                    </a>
-                                    <br></br>
-                                </div>
-                            ))}
-                        </div>
-                    </>)}
+                <div className='w-1/3 flex justify-end gap-4 items-center'>
+                    <div className="w-3/4">
+                        <Search className="" placeholder="Buscar por usuário" enterButton="Buscar" size="large" onSearch={onSearch}/>
+                        {!searched ? (<span></span>) : (
+                        <>
+                            <div className="flex flex-col justify-center items-center mt-1">
+                                {foundUsers.map((item, index) => (
+                                    <div className="mb-2" key={index}>
+                                        <a href={`/perfil/${item}`} key={index}>
+                                            {item}
+                                        </a>
+                                        <br></br>
+                                    </div>
+                                ))}
+                            </div>
+                        </>)}
+                    </div>
+                    <div className='w-1/4 flex flex-col items-center'>
+                        <p className="" onMouseOver={() => (setLogoutUserInformation(true))}>
+                            Olá, {user.username}!
+                        </p>
+                        {logoutUserInformation && (
+                            <div className='absolute bg-midnightblue mt-7 px-10 py-2 rounded z-10 flex flex-col justify-center items center'>
+                                <div>Perfil</div>
+                                <div>Sair</div>
+                            </div>
+                        )}
+                    </div>
                 </div>
         </div>
     );
 };
 
 export default Header;
+

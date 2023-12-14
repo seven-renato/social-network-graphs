@@ -20,7 +20,7 @@
 
 button, [type='button'], [type='reset'], [type='submit'] {
   /* background-color: transparent; */
-  background-color: blue;
+  background-color: #023047;
   background-image: none;
 }
 
