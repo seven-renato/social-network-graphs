@@ -228,7 +228,9 @@ export default function Home() {
                                     <p className="font-bold">{user.info.name}</p>
                                     <p className="mb-1 color-gray">@{user.info.username}</p>
                                     <Text>
-                                        Bio: {user.info.bio}
+                                        <i>
+                                            {user.info.bio}
+                                        </i>
                                     </Text>
                                 </div>
                                 {currentUser !== undefined ? (
