@@ -51,7 +51,7 @@ export default function Login() {
   };
 
   return (
-    <>
+    <div className="bg-white">
       <Form
         name="normal_login"
         style={{ marginTop: '160px'}}
@@ -105,6 +105,6 @@ export default function Login() {
         {alertMessage}
         </Alert>
       </Snackbar>
-    </>
+    </div>
   )
 };

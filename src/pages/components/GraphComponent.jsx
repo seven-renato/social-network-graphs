@@ -57,7 +57,7 @@ const GraphComponent = () => {
           nodeAutoColorBy={"followersQty"}
           numDimensions={2}
           width={1000}
-          height={window.screen.height > 1000 ? 1000 : 600 }
+          height={window.screen.height > 1000 ? 1000 : 620 }
         />
       </div>
       <Footer/>

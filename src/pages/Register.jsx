@@ -46,7 +46,7 @@ export default function Register() {
     };
     
     return (
-        <div>
+        <div className="bg-white">
             <Form style={{ marginTop: '140px' }} className="mt-20 flex flex-col justify-center items-center align-middle" name="normal_login"  onFinish={onFinish}>
                  <img src="./logo.png" className="mb-5" style={{width: '200px'}} alt="" />
                 <Form.Item
