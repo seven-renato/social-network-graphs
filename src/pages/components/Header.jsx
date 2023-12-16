@@ -36,7 +36,7 @@ const Header = () => {
                 <div className='flex gap-10 w-2/3 text-white'>
                     <div className="flex justify-center items-center text-4xl gap-4">
                         <Link to={'/home'}>
-                            <img className="mt-2 w-22 h-20 ml-10" src="./logo2.png" alt="" />
+                            <img className="mt-2 w-22 h-20 ml-10" src="../../../public/logo2.png" alt="" />
                         </Link>
                         <Link to={"/home"}>
                             <p style={{fontWeight: 'bold', fontFamily: 'Lilita One', fontSize: '60px'}}>
