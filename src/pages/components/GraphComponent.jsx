@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import ForceGraph2D from 'react-force-graph-2d';
 import {socialNetworkGraph, userGraph} from "../../axios/apiCalls"
 import { useNavigate } from "react-router-dom";
-
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const GraphComponent = () => {
   const fgRef = useRef(null);
@@ -24,11 +25,12 @@ const GraphComponent = () => {
   
   const generateGraphData = (data) => {
     console.log(data)
-    const {nodes, connections} = data
+    const {nodes, connections, followersQty} = data
     
     const nodesL = nodes.map((node) => ({
       id: node,
-      label: node
+      label: node,
+      followersQty: followersQty[node]
     }));
 
     const linkL = connections.map((connection) => ({
@@ -41,16 +43,24 @@ const GraphComponent = () => {
   };
 
   return (
-    <div className='flex justify-center'>
-      <ForceGraph2D
-        ref={fgRef}
-        graphData={graphData}
-        nodeLabel="label"
-        linkDirectionalArrowLength={6}
-        linkDirectionalArrowRelPos={1}
-        emitPar
-        onNodeClick={(node) => navigate(`/perfil/${node.id}`)}
-      />
+    <div className='flex flex-col'>
+      <Header/>
+      <div className='flex justify-center items-center'>
+        <ForceGraph2D
+          ref={fgRef}
+          graphData={graphData}
+          nodeLabel="label"
+          linkDirectionalArrowLength={6}
+          linkDirectionalArrowRelPos={1}
+          emitPar
+          onNodeClick={(node) => navigate(`/perfil/${node.id}`)}
+          nodeAutoColorBy={"followersQty"}
+          numDimensions={2}
+          width={1000}
+          height={620}
+        />
+      </div>
+      <Footer/>
     </div>
   );
 };

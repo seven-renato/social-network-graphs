@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-import { LockOutlined, MailOutlined, UserOutlined, CalendarOutlined, ExclamationOutlined } from '@ant-design/icons';
+import { FormOutlined, MailOutlined, UserOutlined, CalendarOutlined, ExclamationOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Select } from 'antd';
 
 import { Link } from 'react-router-dom';
@@ -47,7 +47,8 @@ export default function Register() {
     
     return (
         <div>
-            <Form className="mt-20 flex flex-col justify-center items-center align-middle" name="normal_login"  onFinish={onFinish}>
+            <Form style={{ marginTop: '140px' }} className="mt-20 flex flex-col justify-center items-center align-middle" name="normal_login"  onFinish={onFinish}>
+                 <img src="./logo.png" className="mb-5" style={{width: '200px'}} alt="" />
                 <Form.Item
                     name="username"
                     rules={[
@@ -57,7 +58,7 @@ export default function Register() {
                     },
                     ]}
                 >
-                        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+                    <Input size='large' prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Digite seu username" />
                 </Form.Item>
                 <Form.Item
                     name="name"
@@ -68,7 +69,7 @@ export default function Register() {
                     },
                     ]}
                 >
-                    <Input prefix={<ExclamationOutlined />} placeholder="Nome" />
+                    <Input size='large' prefix={<FormOutlined />} placeholder="Digite seu nome" />
                 </Form.Item>
                 <Form.Item
                     name="password"
@@ -80,7 +81,7 @@ export default function Register() {
                     },
                     ]}
                     >   
-                    <Input.Password placeholder="Digite uma senha" />
+                    <Input.Password size='large' placeholder="Digite uma senha" />
                 </Form.Item>
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button">Registrar</Button>

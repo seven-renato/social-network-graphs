@@ -56,7 +56,7 @@ export const getInfoVisibility = async (data) => {
 
 export const createRelation = async (data) => {
   try {
-    const res = await apiRequest.post(`/add-relation`, data);
+    const res = await apiRequest.post(`/follow`, data);
     return res
   } catch (err) {
     return false
@@ -91,3 +91,12 @@ export const editUserInformation = async (data) => {
     return false
   }
 }
+
+export const createPost = async (data) => {
+  try {
+    const res = await apiRequest.post(`/create-post`, data);
+    return res
+  } catch (err) {
+    return false
+  }
+};

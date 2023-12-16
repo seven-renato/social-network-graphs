@@ -33,8 +33,6 @@ const UserGraphComponent = (props) => {
       source: edges.source,
       target: edges.target
     }));
-
-    console.log(nodesL, linkL)
     setGraphData({nodes: nodesL, links: linkL})
   };
 
@@ -44,7 +42,7 @@ const UserGraphComponent = (props) => {
         ref={fgRef}
         graphData={graphData}
         nodeLabel="label"
-        linkDirectionalArrowLength={6}
+        linkDirectionalArrowLength={0}
         linkDirectionalArrowRelPos={1}
         emitPar
         onNodeClick={(node) => window.location.href = `/perfil/${node.id}`}
@@ -52,7 +50,6 @@ const UserGraphComponent = (props) => {
         numDimensions={2}
         height={300}
         width={260}
-        maxZoom={1}
       />
     </div>
   );

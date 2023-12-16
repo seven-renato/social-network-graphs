@@ -7,6 +7,9 @@ import { searchUser} from "../../axios/apiCalls";
 import { Input } from 'antd';
 const { Search } = Input;
 
+import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
+
+
 const Header = () => {
     const user = useSelector((state) => state.user.currentUser); // User from redux
     const [foundUsers, setFoundUsers] = useState([]);
@@ -29,16 +32,16 @@ const Header = () => {
         setLogoutUserInformation(true)
     }
     return (
-        <div className='flex bg-color1 h-20 px-4 '>
+        <div className='flex bg-color1 h-32 px-4 '>
                 <div className='flex gap-10 w-2/3 text-white'>
-                    <div className="flex flex-col justify-center items-center text-4xl ">
-                        <Link to={`/home`}>
-                            <img className="mt-2 w-20 h-20" src="./logo.png" alt="" />
+                    <div className="flex justify-center items-center text-4xl gap-4">
+                        <Link to={'/home'}>
+                            <img className="mt-2 w-22 h-20 ml-10" src="./logo2.png" alt="" />
                         </Link>
-                    </div>
-                    <div className="flex flex-col justify-center items-center text-4xl">
-                        <Link to={`/social-network`}>
-                            Social Network Graph
+                        <Link to={"/home"}>
+                            <p style={{fontWeight: 'bold', fontFamily: 'Lilita One', fontSize: '60px'}}>
+                                Orbee
+                            </p>
                         </Link>
                     </div>
                 </div>
@@ -49,14 +52,14 @@ const Header = () => {
                         <span></span>
                         ) : (
                         <div className='flex justify-center' onMouseLeave={() => (setSearched(false))}>
-                            <div style={{width: "455px"}} className="flex z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white max-h-40 overflow-y-auto">
+                            <div style={{width: "325px"}} className="flex pt-10 z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white max-h-40 overflow-y-auto">
                                 {foundUsers.map((item, index) => (
                                     <div className="w-full flex p-3 items-center justify-center hover:bg-gray-300 rounded-b-lg cursor-pointer" key={index}>
                                         <div className="mr-4"></div>
                                         <div>
-                                            <a href={`/perfil/${item}`} className="font-bold text-lg">
+                                            <Link to={`/perfil/${item}`} className="font-bold text-lg">
                                             {item}
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 ))}
@@ -64,14 +67,14 @@ const Header = () => {
                         </div>
                         )}
                     </div>
-                    <div className='w-1/4 flex flex-col items-center'>
-                        <p className="text-white" onMouseOver={() => (setLogoutUserInformation(true))}>
+                    <div className='w-1/4 flex flex-col items-center' style={{fontSize: "20px"}}>
+                        <p className="text-white cursor-pointer" onClick={() => (setLogoutUserInformation(!logoutUserInformation))}>
                             Olá, {user.username}!
                         </p>
                         {logoutUserInformation && (
-                            <div className='text-white absolute bg-color2 mt-7 px-10 py-2 rounded z-10 flex flex-col justify-center items center'>
-                                <div>Perfil</div>
-                                <div>Sair</div>
+                            <div style={{width: "130px"}} className='text-white absolute bg-color2 mt-9 px-7 py-4 rounded z-10 flex flex-col justify-center items center'>
+                                <a href='/home'> <UserOutlined/> Perfil</a>
+                                <a href='/login'> <LogoutOutlined/> Sair</a>
                             </div>
                         )}
                     </div>

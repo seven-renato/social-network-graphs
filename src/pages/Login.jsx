@@ -54,22 +54,24 @@ export default function Login() {
     <>
       <Form
         name="normal_login"
-        className="mt-20 flex flex-col justify-center items-center align-middle"
+        style={{ marginTop: '160px'}}
+        className="flex flex-col justify-center items-center align-middle"
         initialValues={{
           remember: true,
         }}
         onFinish={onFinish}
-      >
+        >
+        <img src="./logo.png" className="mb-5" style={{width: '200px'}} alt="" />
         <Form.Item
           name="username"
           rules={[
             {
               required: true,
-              message: 'Please insert your Username!',
+              message: 'Por favor digita seu username!',
             },
           ]}
         >
-          <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+          <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Digite seu username" />
         </Form.Item>
         <Form.Item
           name="password"
@@ -81,13 +83,13 @@ export default function Login() {
           },
           ]}
         >   
-          <Input.Password placeholder="Digite uma senha" />
+          <Input.Password placeholder="Digite sua senha" size="large" />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
             Login
           </Button>
-          &nbsp; ou <Link to="/register"> Register </Link>
+          &nbsp; ou <Link to="/register"> Registrar </Link>
           
         </Form.Item>
       </Form>
