@@ -54,7 +54,7 @@ export default function Login() {
     <>
       <Form
         name="normal_login"
-        className="login-form"
+        className="mt-20 flex flex-col justify-center items-center align-middle"
         initialValues={{
           remember: true,
         }}
@@ -71,7 +71,18 @@ export default function Login() {
         >
           <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
         </Form.Item>
-
+        <Form.Item
+          name="password"
+          rules={[
+          {
+              required: true,
+              message: 'Por favor insira uma senha!',
+              min: 6
+          },
+          ]}
+        >   
+          <Input.Password placeholder="Digite uma senha" />
+        </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" className="login-form-button">
             Login

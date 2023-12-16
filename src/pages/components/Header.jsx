@@ -29,11 +29,11 @@ const Header = () => {
         setLogoutUserInformation(true)
     }
     return (
-        <div className='flex bg-beeyellow h-20 text-white px-4 '>
-                <div className='flex gap-10 w-2/3'>
+        <div className='flex bg-color1 h-20 px-4 '>
+                <div className='flex gap-10 w-2/3 text-white'>
                     <div className="flex flex-col justify-center items-center text-4xl ">
                         <Link to={`/home`}>
-                            <img className="mt-2 w-20 h-20" src="../../../public/logo.png" alt="" />
+                            <img className="mt-2 w-20 h-20" src="./logo.png" alt="" />
                         </Link>
                     </div>
                     <div className="flex flex-col justify-center items-center text-4xl">
@@ -44,27 +44,32 @@ const Header = () => {
                 </div>
                 <div className='w-1/3 flex justify-end gap-4 items-center'>
                     <div className="w-3/4">
-                        <Search className="" placeholder="Buscar por usuário" enterButton="Buscar" size="large" onSearch={onSearch}/>
-                        {!searched ? (<span></span>) : (
-                        <>
-                            <div className="flex flex-col justify-center items-center mt-1">
+                        <Search className="" placeholder="Buscar por usuário" enterButton="Buscar" size="large" onSearch={onSearch} />
+                        {!searched ? (
+                        <span></span>
+                        ) : (
+                        <div className='flex justify-center' onMouseLeave={() => (setSearched(false))}>
+                            <div style={{width: "455px"}} className="flex z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white max-h-40 overflow-y-auto">
                                 {foundUsers.map((item, index) => (
-                                    <div className="mb-2" key={index}>
-                                        <a href={`/perfil/${item}`} key={index}>
+                                    <div className="w-full flex p-3 items-center justify-center hover:bg-gray-300 rounded-b-lg cursor-pointer" key={index}>
+                                        <div className="mr-4"></div>
+                                        <div>
+                                            <a href={`/perfil/${item}`} className="font-bold text-lg">
                                             {item}
-                                        </a>
-                                        <br></br>
+                                            </a>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
-                        </>)}
+                        </div>
+                        )}
                     </div>
                     <div className='w-1/4 flex flex-col items-center'>
-                        <p className="" onMouseOver={() => (setLogoutUserInformation(true))}>
+                        <p className="text-white" onMouseOver={() => (setLogoutUserInformation(true))}>
                             Olá, {user.username}!
                         </p>
                         {logoutUserInformation && (
-                            <div className='absolute bg-midnightblue mt-7 px-10 py-2 rounded z-10 flex flex-col justify-center items center'>
+                            <div className='text-white absolute bg-color2 mt-7 px-10 py-2 rounded z-10 flex flex-col justify-center items center'>
                                 <div>Perfil</div>
                                 <div>Sair</div>
                             </div>

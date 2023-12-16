@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {},
     colors: {
-      "midnightblue": "#023047",
-      "beeyellow" : "#eab308",
-      'white': '#ffffff',
+      "color2": "#eab308", // E5E7EB
+      "color1" : "#023047", // #eab308
+      'white': '#ffffff', 
       'purple': '#3f3cbb',
       'midnight': '#121063',
       'metal': '#565584',
@@ -17,6 +17,7 @@ export default {
       'silver': '#ecebff',
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',
+      "bg-color": "#E5E7EB"
     }
   },
   plugins: [],

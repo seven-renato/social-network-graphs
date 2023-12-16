@@ -20,7 +20,20 @@
 
 button, [type='button'], [type='reset'], [type='submit'] {
   /* background-color: transparent; */
-  background-color: #023047;
+  background-color: #eab308;
   background-image: none;
 }
 
+
+.ant-btn:hover {
+  background-color: #f0e3bc !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #eab308;
+  border-radius: 10px;
+}

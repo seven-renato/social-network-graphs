@@ -19,7 +19,7 @@ const UserGraphComponent = (props) => {
         generateGraphData(response.data)
       }
     })
-  }, []);
+  }, [props.render]);
   
   const generateGraphData = (data) => {
     const {nodes, edges, distances} = data
@@ -51,7 +51,8 @@ const UserGraphComponent = (props) => {
         nodeAutoColorBy={"distance"}
         numDimensions={2}
         height={300}
-        width={280}
+        width={260}
+        maxZoom={1}
       />
     </div>
   );

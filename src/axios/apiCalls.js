@@ -20,7 +20,7 @@ export const registerRequest = async (user) => {
 
 export const getUser = async (username) => {
   try {
-    const res = await apiRequest.get(`/user/${username}`);
+    const res = await apiRequest.get(`/users/${username}`);
     return res
   } catch (err) {
     return false
@@ -81,3 +81,13 @@ export const socialNetworkGraph = async () => {
     return false
   }
 } 
+
+export const editUserInformation = async (data) => {
+  console.log(data)
+  try {
+    const res = await apiRequest.put(`/users/${data.username}`, data.info);
+    return res
+  } catch (err) {
+    return false
+  }
+}
