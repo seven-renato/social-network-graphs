@@ -45,7 +45,7 @@ const GraphComponent = () => {
   return (
     <div className='flex flex-col'>
       <Header/>
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center bg-white'>
         <ForceGraph2D
           ref={fgRef}
           graphData={graphData}
@@ -57,7 +57,7 @@ const GraphComponent = () => {
           nodeAutoColorBy={"followersQty"}
           numDimensions={2}
           width={1000}
-          height={620}
+          height={window.screen.height > 1000 ? 1000 : 600 }
         />
       </div>
       <Footer/>

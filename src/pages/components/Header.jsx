@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import { searchUser} from "../../axios/apiCalls";
-import { Input } from 'antd';
+import { Input, Divider } from 'antd';
 const { Search } = Input;
 
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
@@ -54,14 +54,10 @@ const Header = () => {
                         <div className='flex justify-center' onMouseLeave={() => (setSearched(false))}>
                             <div style={{width: "325px"}} className="flex pt-10 z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white max-h-40 overflow-y-auto">
                                 {foundUsers.map((item, index) => (
-                                    <div className="w-full flex p-3 items-center justify-center hover:bg-gray-300 rounded-b-lg cursor-pointer" key={index}>
-                                        <div className="mr-4"></div>
-                                        <div>
-                                            <Link to={`/perfil/${item}`} className="font-bold text-lg">
-                                            {item}
-                                            </Link>
-                                        </div>
-                                    </div>
+                                    <Link to={`/perfil/${item}`} className="font-bold text-lg" style={{marginTop: index == 0 ? "-100px" : "0px"}}>
+                                        {item}
+                                        <Divider/>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

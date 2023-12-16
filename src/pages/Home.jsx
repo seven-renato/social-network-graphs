@@ -286,7 +286,7 @@ export default function Home() {
                                 </Button>
                             )}
                         </div>
-                        <div style={{maxHeight: '600px', marginTop: currentUser !== undefined ? '0px' : '-80px'}} className="bg-white h-full shadow-lg rounded-lg flex flex-col items-center px-10 overflow-y-scroll">
+                        <div style={{maxHeight: '600px', marginTop: currentUser !== undefined ?  user.info.mural.length === 0 ? '0px' : '-80px' : '-80px'}} className="bg-white h-full shadow-lg rounded-lg flex flex-col items-center px-10 overflow-y-scroll">
                             {user.info.mural.length === 0 ? (<Empty style={{marginTop: '180px'}} description="Parece que seu mural está vazio..." />) : (
                                 <div className='mt-9'>
                                     {user.info.mural.map((post) => (
