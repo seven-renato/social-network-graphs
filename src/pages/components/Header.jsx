@@ -36,7 +36,7 @@ const Header = () => {
                 <div className='flex gap-10 w-2/3 text-white'>
                     <div className="flex justify-center items-center text-4xl gap-4">
                         <Link to={'/home'}>
-                            <img className="mt-2 w-22 h-20 ml-10" src="../../../public/logo2.png" alt="" />
+                            <img className="mt-2 w-22 h-20 ml-10" src="../logo2.png" alt="" />
                         </Link>
                         <Link to={"/home"}>
                             <p style={{fontWeight: 'bold', fontFamily: 'Lilita One', fontSize: '60px'}}>
@@ -53,7 +53,6 @@ const Header = () => {
                         ) : (
                         <div className='flex justify-center' onMouseLeave={() => (setSearched(false))}>
                             <div style={{width: "325px", maxHeight: "300px"}} className="flex pt-10 z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white overflow-y-auto">
-                                {console.log(foundUsers)}
                                 {foundUsers.map((item, index) => (
                                     <Link to={`/perfil/${item}`} className="font-bold text-lg" style={{marginTop: index == 0 ? "00px" : "10px"}}>
                                         {item}
