@@ -52,9 +52,10 @@ const Header = () => {
                         <span></span>
                         ) : (
                         <div className='flex justify-center' onMouseLeave={() => (setSearched(false))}>
-                            <div style={{width: "325px"}} className="flex pt-10 z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white max-h-40 overflow-y-auto">
+                            <div style={{width: "325px", maxHeight: "300px"}} className="flex pt-10 z-10 absolute flex-col justify-center items-center text-black rounded-b-lg bg-white overflow-y-auto">
+                                {console.log(foundUsers)}
                                 {foundUsers.map((item, index) => (
-                                    <Link to={`/perfil/${item}`} className="font-bold text-lg" style={{marginTop: index == 0 ? "-100px" : "0px"}}>
+                                    <Link to={`/perfil/${item}`} className="font-bold text-lg" style={{marginTop: index == 0 ? "00px" : "10px"}}>
                                         {item}
                                         <Divider/>
                                     </Link>
